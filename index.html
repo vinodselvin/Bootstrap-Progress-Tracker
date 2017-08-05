@@ -41,9 +41,12 @@ list-style-position: inside;
 padding:0px;
 }
 .progress-tracker .step .step-name{
-border-top: 10px solid #aaa;
+border-top: 2px solid #aaa;
+border-bottom: 2px solid #aaa;
 display: block;
-margin: 43px -1px 43px 89px;
+height: 9px;
+margin: 41px -1px 41px 89px;
+
 }
 /*last step*/
 .progress-tracker .step:last-child { width: auto;}
@@ -59,7 +62,7 @@ height: 0;
 border: 9px solid transparent;
 border-bottom-color: gray;
 position: relative;
-top: -23px;
+top: -15px;
 display:inline-block;
 }
 .diamond:after {
@@ -83,6 +86,13 @@ border-top-color: gray;
   border-top-color: red;
 }
 .progress-tracker > .step > .step-name .popover.top{width: 200px;}
+
+.step .step-name:nth-child(1){
+background: -webkit-linear-gradient(left, lightgreen 12.5%, white 0%);
+background: -moz-linear-gradient(left, black 12.5%, white 0%);
+background: -ms-linear-gradient(left, black 12.5%, white 0%);
+background: linear-gradient(left, black 12.5%, white 0%);
+}
 </style>
 
 </head>
