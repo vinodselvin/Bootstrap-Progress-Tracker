@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap.min.css">
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+
+<style type="text/css">
+.progress-tracker {
+display: block;margin: 0;
+counter-reset: item;
+list-style-type: none;
+overflow: auto;
+position: relative;
+width: 100%;
+text-transform: uppercase;
+font-weight: bold;
+letter-spacing: .075em
+}
+.progress-tracker .step:before {
+background: #aaa;
+border-radius: 50%;
+color: #FFFFFF;
+content: "";
+display: list-item;
+font-size: 18px;
+line-height: 1.8em;
+padding: 0 0 0 13px;
+position: absolute;
+width: 90px;
+height: 90px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+}
+.progress-tracker .step {
+display: block;
+float: left;
+list-style-position: inside;
+padding:0px;
+}
+.progress-tracker .step .step-name{
+border-top: 10px solid #aaa;
+display: block;
+margin: 43px -1px 43px 89px;
+}
+/*last step*/
+.progress-tracker .step:last-child { width: auto;}
+.progress-tracker .step:last-child .step-name{ border-color: transparent;}
+
+/*active step*/
+.progress-tracker .step.active .step-name {color: #666}
+.progress-tracker .step.active:before {background: #666;}
+
+.diamond {
+width: 0;
+height: 0;
+border: 9px solid transparent;
+border-bottom-color: red;
+position: relative;
+top: -23px;
+display:inline-block;
+}
+.diamond:after {
+content: '';
+position: absolute;
+left: -9px;
+top: 9px;
+width: 0;
+height: 0;
+border: 9px solid transparent;
+border-top-color: red;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<ol class="progress-tracker row">
+<li class="step col-xs-3 active">
+	<span class="step-name row">
+		<div class="col-xs-2">
+			<div class="diamond"></div>
+		</div>
+		<div class="col-xs-2">
+			<div class="diamond"></div>
+		</div>
+	</span>
+</li>
+<li class="step col-xs-3">
+	<span class="step-name"></span></li>
+<li class="step col-xs-3"><span class="step-name"></span></li>
+<li class="step col-xs-3"><span class="step-name"></span></li>
+</ol>
+</div>
+
+</body>
+</html>
