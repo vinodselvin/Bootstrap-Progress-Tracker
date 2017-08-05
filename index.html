@@ -11,9 +11,7 @@
 <style type="text/css">
 .progress-tracker {
 display: block;margin: 0;
-counter-reset: item;
 list-style-type: none;
-overflow: auto;
 position: relative;
 width: 100%;
 text-transform: uppercase;
@@ -59,7 +57,7 @@ margin: 43px -1px 43px 89px;
 width: 0;
 height: 0;
 border: 9px solid transparent;
-border-bottom-color: red;
+border-bottom-color: gray;
 position: relative;
 top: -23px;
 display:inline-block;
@@ -72,19 +70,38 @@ top: 9px;
 width: 0;
 height: 0;
 border: 9px solid transparent;
-border-top-color: red;
+border-top-color: gray;
 }
+.progress-tracker > .step > .step-name .active{border-bottom-color: red;}
+.progress-tracker > .step > .step-name .active:after{border-top-color: red;}
+
+.progress-tracker > .step > .step-name .popover{border: 1px solid red;}
+.progress-tracker > .step > .step-name .popover.top .arrow:after {
+  border-top-color: white;
+}
+.progress-tracker > .step > .step-name .popover.top .arrow{
+  border-top-color: red;
+}
+.progress-tracker > .step > .step-name .popover.top{width: 200px;}
 </style>
+
 </head>
 <body>
-<div class="container">
+<br><br><br><br>
+<div class="container-fluid">
 <ol class="progress-tracker row">
 <li class="step col-xs-3 active">
 	<span class="step-name row">
-		<div class="col-xs-2">
-			<div class="diamond"></div>
+		<div class="col-xs-3">
+			<div class="diamond active" title="" data-toggle="popover" data-placement="top" data-content="Please Wait while your transaction has been processed"></div>
 		</div>
-		<div class="col-xs-2">
+		<div class="col-xs-3">
+			<div class="diamond" title="" data-toggle="popover" data-placement="top" data-content="Please Wait while your transaction has been processed"></div>
+		</div>
+		<div class="col-xs-3">
+			<div class="diamond" title="" data-toggle="popover" data-placement="top" data-content="Please Wait while your transaction has been processed"></div>
+		</div>
+		<div class="col-xs-3">
 			<div class="diamond"></div>
 		</div>
 	</span>
@@ -95,6 +112,19 @@ border-top-color: red;
 <li class="step col-xs-3"><span class="step-name"></span></li>
 </ol>
 </div>
-
+<script>
+$(document).ready(function(){
+    //$('[data-toggle="popover"]').popover({ trigger: "hover" });   
+    $('[data-toggle="popover"]').popover(); 
+   
+   $('.diamond').on('click', function (e) {
+    $('[data-toggle="popover"]').each(function () {
+        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+            $(this).popover('hide');
+        }
+    });
+});
+});
+</script>
 </body>
 </html>
